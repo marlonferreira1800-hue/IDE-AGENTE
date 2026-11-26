@@ -1,0 +1,17 @@
+[package]
+name = "swarm-ide-desktop"
+version = "0.1.0"
+edition = "2021"
+description = "Swarm IDE Desktop (Tauri v2 + Rust SwarmEngine)"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+swarm_server = { package = "swarm-server-rust", path = "../server-rust" }
+tauri = { version = "2", features = [] }
+tokio = { version = "1", features = ["rt-multi-thread"] }
+
+[profile.dev]
+debug = 0
+incremental = false

@@ -1,0 +1,22 @@
+{
+  "name": "swarm-ide",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MVP de IDE desktop/web baseada em Swarm (enxame de agentes) com monitoramento visual integrado",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:server": "npm run dev -w server",
+    "dev:client": "npm run dev -w client",
+    "dev:rust": "cargo run --manifest-path server-rust/Cargo.toml",
+    "test:rust": "cargo test --manifest-path server-rust/Cargo.toml",
+    "run:tauri": "npm run build -w client && cargo run --manifest-path src-tauri/Cargo.toml",
+    "build:tauri": "npm run build -w client && cargo build --release --manifest-path src-tauri/Cargo.toml",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  }
+}
